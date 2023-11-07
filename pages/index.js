@@ -1,10 +1,13 @@
-import { Box, Container, Heading, Image, useColorModeValue } from "@chakra-ui/react"
+import { Box, Container, Heading, Image, Link, useColorModeValue, Button } from "@chakra-ui/react"
+import Section from "../components/section"
+import Paragraph from "../components/paragraph"
+import { ChevronRightIcon } from "@chakra-ui/icons"
 
 const Page =  () => {
   return(
     <Container>
       <Box borderRadius = "lg" bg={useColorModeValue("whiteAlpha.600", "whiteAlpha.200")} p={3} mb={6} align="center">
-      A group to find new restaurants, cafes and bars. We meet every Thursday night at 5pm in Atrium and go try new foods in different places. Dont be afraid to leave suggestions
+      Hi, I&apos;m a full-stack developer based in Hong Kong and Mauritius!
       </Box>
 
       <Box display={{md: "flex"}}>
@@ -21,6 +24,20 @@ const Page =  () => {
           display="inline-block" borderRadius="full" src="/images/main_logo.png" alt = "Profile Image" />
         </Box>
       </Box>
+
+      <Section delay={0.2}>
+        <Heading as = "h3" variant = "section-title">
+          Work
+        </Heading>
+        <Paragraph>A group to find new restaurants, cafes and bars. We meet every Thursday night at 5pm in Atrium and go try new foods in different places. Dont be afraid to leave suggestions like {' '} <Link href="/works/topelec">Topelec</Link>.</Paragraph>
+        <Box align="center" my={4}>
+          <Link href="/works">
+            <Button rightIcon={<ChevronRightIcon/>} colorScheme="teal">
+              My Portfolio
+            </Button>
+          </Link>
+        </Box>
+      </Section>
     </Container>
   )
 }

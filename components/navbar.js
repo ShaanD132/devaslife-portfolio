@@ -8,11 +8,9 @@ const LinkItem = ({href, path, children}) => {
   const active = path === href
   const inactiveColor = useColorModeValue("gray200", "whiteAlpha.900")
   return(
-    <NextLink href = {href}>
-      <Link p = {2} bg={active ? "glassTeal": undefined} color = {active ? "#202023" : inactiveColor}>
+      <Link as ={NextLink} href={href} p = {2} bg={active ? "glassTeal": undefined} color = {active ? "#202023" : inactiveColor}>
         {children}
       </Link>
-    </NextLink>
   )
 }
 
@@ -33,7 +31,7 @@ const Navbar = props => {
         <Stack direction={{base: "column", md: "row"}} display = {{base: "none", md: "flex"}} 
         //mt ={{base: 0, nmd: 0}}
           width = {{base: "full", md: "auto"}} alignItems="center" flexGrow={1} mt ={{base: 4, nmd: 0}}>
-          <LinkItem href = "/works" path={path}>Works</LinkItem>
+        <LinkItem href = "/works" path={path}>Works</LinkItem>
           <LinkItem href = "/posts" path={path}>Posts</LinkItem>
         </Stack>
 
@@ -44,16 +42,16 @@ const Navbar = props => {
               <MenuButton as={IconButton} icon={<HamburgerIcon />} variant="outline" aria-label="Options" />
               <MenuList>
                 <NextLink href="/" passHref>
-                  <MenuItem as={Link}>About</MenuItem>
+                  <MenuItem>About</MenuItem>
                 </NextLink>
                 <NextLink href="/works" passHref>
-                  <MenuItem as={Link}>Works</MenuItem>
+                  <MenuItem>Works</MenuItem>
                 </NextLink>
                 <NextLink href="/posts" passHref>
-                  <MenuItem as={Link}>Posts</MenuItem>
+                  <MenuItem>Posts</MenuItem>
                 </NextLink>
                 <NextLink href="https://github.com/ShaanD132" passHref>
-                  <MenuItem as={Link}>GitHub</MenuItem>
+                  <MenuItem>GitHub</MenuItem>
                 </NextLink>
               </MenuList>
             </Menu>
